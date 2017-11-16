@@ -8,6 +8,7 @@ namespace AdventureStory
 {
     class EncounterDescriptions
     {
+
         public bool decideSize = false;
         public string size = "tiny";
 
@@ -26,6 +27,12 @@ namespace AdventureStory
         public int lockThirdObject = 0;
         public bool decideThirdObject = true;
         public string thirdObject = "fountain";
+        public int lockFourthObject = 0;
+        public bool decideFourthObject = true;
+        public string fourthObject = "squirrels";
+        public int lockFifthObject = 0;
+        public bool decideFifthObject = true;
+        public string fifthObject = "skittles";
 
         public bool isPretty = true;
         public string prettiness = "pretty";
@@ -81,7 +88,23 @@ namespace AdventureStory
                 thirdObject = decideThirdObject ? "fountain" : "bottomless pit";
             }
         }
+        public void ChangeFourthObject()
+        {
+            if (lockFourthObject == 0)
+            {
+                decideFourthObject = !decideFourthObject;
+                fourthObject = decideFourthObject ? "squirrel" : "narwhals";
+            }
+        }
 
+        public void ChangeFifthObject()
+        {
+            if (lockFifthObject == 0)
+            {
+                decideFifthObject = !decideFifthObject;
+                fifthObject = decideFifthObject ? "skittles" : "watermelons";
+            }
+        }
 
         public void ChangePrettiness()
         {
