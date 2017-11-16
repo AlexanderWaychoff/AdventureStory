@@ -55,12 +55,17 @@ namespace AdventureStory
                         encounterDescriptions.ChangeTasty();
                         carryover1 = encounterDescriptions.firstObject;
                         carryover2 = carryover1;
+                        encounterDescriptions.ChangeFirstObject();
+                        encounterDescriptions.lockFirstObject += 1;
+                        encounterDescriptions.lockSecondObject += 1;
                         break;
                     case "middle":
                         choiceCompleted += 1;
                         storyline = "You venture down the middle path.  You notice some " + encounterDescriptions.colorYellowRed + " wisps floating about the air and the source appears to be coming from a " + encounterDescriptions.thirdObject + ".  What do you do?";
                         carryover1 = encounterDescriptions.thirdObject;
                         carryover2 = carryover1;
+                        encounterDescriptions.ChangeSecondObject();
+                        encounterDescriptions.lockSecondObject += 1;
                         break;
                     case "right":
                         choiceCompleted += 1;
@@ -152,7 +157,20 @@ namespace AdventureStory
                 }
                 else if (choice1 == "middle")
                 {
-
+                    if (choice2 == "yell")
+                    {
+                        Console.WriteLine("'Who dares disturb my peaceful abode??' You hear something say.  A " + encounterDescriptions.secondObject + " bursts forth from the fountain and stares into your soul.  You may have been loud, but at least you didn't stare!  You take the middle and index fingers of your hand and abruptly poke the " + encounterDescriptions.secondObject + " in the eyes.  'Ow no!  My eyes!'  He says.  He screams in apparent agony as a black hole forms in his chest and slowly sucks him up.  After a few minutes of his painful wails he finally vanishes completely along with the black hole.  You just stand there for another minute trying to take it in, though perhaps this is enough adventuring for one day.  You decide to head home where you can tell your friends of the day you vanquished a " + encounterDescriptions.secondObject + ".  Adventure was a success(?)");
+                        Console.ReadKey();
+                        return 0;
+                    }
+                    else if (choice2 == "taste")
+                    {
+                        storyline = "'Tis a glorious fountain, is it not?'  A " + encounterDescriptions.secondObject + " says as he reveals himself from inside the " + carryover1 + ".  You silently gag having unknowingly tasted mythical creature.  'How can I help you on this fine day' He asks.  What do you do?";
+                    }
+                    else
+                    {
+                        storyline = "'Tis a glorious fountain, is it not?'  A " + encounterDescriptions.secondObject + " says as he reveals himself from inside the " + carryover1 + ".  Admittedly you decide to nod in agreement.  'How can I help you on this fine day' He asks.  What do you do?";
+                    }
                 }
                 else
                 {
@@ -164,11 +182,12 @@ namespace AdventureStory
                     else
                     {
                         encounterDescriptions.ChangeFifthObject();
-                        Console.WriteLine("As you stare at the " + carryover2 + " his horn begins to glow.  You begin to feel weird; it's probably because he just turned you into a " + encounterDescriptions.fifthObject + ".  With a little chortle he pulls out a sharpie and draws a face with a bushy mustache onto you.  As a watermelon you have no functional extremities anymore; you're adventure ends here.  At least the " + carryover2 + " drew your face with a smile, but we both know that only goes skin deep.");
+                        Console.WriteLine("As you stare at the " + carryover2 + " his horn begins to glow.  You begin to feel weird; it's probably because he just turned you into a " + encounterDescriptions.fifthObject + ".  With a little chortle he pulls out a sharpie and draws a face with a bushy mustache onto you.  As a watermelon having no functional extremities anymore, you're adventure ends here.  At least the " + carryover2 + " drew your face with a smile, but we both know that only goes skin deep.");
                         Console.ReadKey();
                         return 0;
                     }
                 }
+                Console.WriteLine(storyline);
                 Console.WriteLine("You can blank blank or blank.");
                 choice3 = Console.ReadLine();
 
