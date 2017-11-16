@@ -38,6 +38,8 @@ namespace AdventureStory
         public string prettiness = "pretty";
         public bool isFancy = true;
         public string fanciness = "fancy";
+        public bool isTasty = true;
+        public string tastiness = "delicious";
 
         public void ChangeSize()
         {
@@ -93,7 +95,7 @@ namespace AdventureStory
             if (lockFourthObject == 0)
             {
                 decideFourthObject = !decideFourthObject;
-                fourthObject = decideFourthObject ? "squirrel" : "narwhals";
+                fourthObject = decideFourthObject ? "squirrel" : "narwhal";
             }
         }
 
@@ -115,6 +117,11 @@ namespace AdventureStory
         {
             isFancy = !isFancy;
             fanciness = isFancy ? "fancy" : "plain";
+        }
+        public void ChangeTasty()
+        {
+            isTasty = !isTasty;
+            tastiness = isTasty ? "delicious" : "disgusting";
         }
     }
 }

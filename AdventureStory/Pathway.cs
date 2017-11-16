@@ -13,12 +13,14 @@ namespace AdventureStory
         public int choiceCompleted = 0;
         public string storyline;
         public string defaultResponse;
-        public string defaultChoice1 = "";
-        public string defaultChoice2 = "a";
-        public string defaultChoice3 = "b";
+        public string defaultChoice1;
+        public string defaultChoice2;
+        public string defaultChoice3;
         public string choice1;
         public string choice2;
         public string choice3;
+        public string carryover1;
+        public string carryover2;
 
         public int GrandAdventure()
         {
@@ -34,7 +36,7 @@ namespace AdventureStory
                         Console.ReadKey();
                         return 0;
                     default:
-                        Console.WriteLine("'AHHHHHHH' The " + encounterDescriptions.secondObject + " yells into the sky.  A bunch of " + encounterDescriptions.fourthObject + " rain down on you.  You suffer a " + encounterDescriptions.prettiness + " humiliating defeat.");
+                        Console.WriteLine("'AHHHHHHH' The " + encounterDescriptions.secondObject + " yells into the sky.  A bunch of " + encounterDescriptions.fourthObject + "s rain down on you.  You suffer a " + encounterDescriptions.prettiness + " humiliating defeat.");
                         Console.ReadKey();
                         return 0;
                 }
@@ -50,16 +52,23 @@ namespace AdventureStory
                         encounterDescriptions.GBChangeColor();
                         choiceCompleted += 1;
                         storyline = "You venture down the left path.  The sky is " + encounterDescriptions.colorGreenBlue + " and full of " + encounterDescriptions.size + " clouds.  Nothing happens for a while until you come upon a " + encounterDescriptions.firstObject + ".  What do you do?";
+                        encounterDescriptions.ChangeTasty();
+                        carryover1 = encounterDescriptions.firstObject;
+                        carryover2 = carryover1;
                         break;
                     case "middle":
                         choiceCompleted += 1;
                         storyline = "You venture down the middle path.  You notice some " + encounterDescriptions.colorYellowRed + " wisps floating about the air and the source appears to be coming from a " + encounterDescriptions.thirdObject + ".  What do you do?";
+                        carryover1 = encounterDescriptions.thirdObject;
+                        carryover2 = carryover1;
                         break;
                     case "right":
                         choiceCompleted += 1;
                         encounterDescriptions.ChangeFourthObject();
                         encounterDescriptions.lockFourthObject += 1;
-                        storyline = "You venture down the right path.  The path is a steep decline so you proceed with caution.  A " + encounterDescriptions.fourthObject + " suddenly bursts fourth and spits " + encounterDescriptions.colorYellowRed + " skittles at you.  What do you do?";
+                        storyline = "You venture down the right path.  The path is a steep decline so you proceed with caution.  A " + encounterDescriptions.fourthObject + " suddenly bursts fourth and spits " + encounterDescriptions.colorYellowRed + " " + encounterDescriptions.fifthObject + " at you.  What do you do?";
+                        carryover1 = encounterDescriptions.fifthObject;
+                        carryover2 = encounterDescriptions.fourthObject;
                         break;
 
                     default:
@@ -90,19 +99,22 @@ namespace AdventureStory
             if (choiceCompleted == 1)
             {
                 Console.WriteLine(storyline);
-                Console.WriteLine("You can 'stare', 'yell', or 'comment'.");
+                Console.WriteLine("You can 'stare', 'yell', or 'taste'.");
                 choice2 = Console.ReadLine();
 
                 switch  (choice2)
                 {
                     case "stare":
-                        storyline = "";
+                        choiceCompleted += 1;
+                        storyline = "You decide to stare at the " + carryover2 + ".";
                         break;
                     case "yell":
-                        storyline = "";
+                        choiceCompleted += 1;
+                        storyline = "You decide to yell at the " + carryover2 + ".";
                         break;
-                    case "comment":
-
+                    case "taste":
+                        choiceCompleted += 1;
+                        storyline = "'This is " + encounterDescriptions.tastiness + "!'  You exclaim, having decided to taste " + carryover1 + ".";
                         break;
 
                     default:
@@ -129,25 +141,24 @@ namespace AdventureStory
                         }
                         return 0;
                 }
-                if (choiceCompleted == 2)
-                {
-                    Console.WriteLine(storyline);
-                    Console.WriteLine("You can blank blank or blank.");
-                    choice3 = Console.ReadLine();
-
-                    switch (choice3)
-                    {
-
-                        default:
-                            defaultChoice += 1;
-                            Console.WriteLine("You hear rumbling nearby.  You're inability to type accurately has apparently disturbed something.");
-                            GrandAdventure();
-                            return 0;
-                    }
-                }
 
             }
+            if (choiceCompleted == 2)
+            {
+                Console.WriteLine(storyline);
+                Console.WriteLine("You can blank blank or blank.");
+                choice3 = Console.ReadLine();
 
+                switch (choice3)
+                {
+
+                    default:
+                        defaultChoice += 1;
+                        Console.WriteLine("You hear rumbling nearby.  You're inability to type accurately has apparently disturbed something.");
+                        GrandAdventure();
+                        return 0;
+                }
+            }
 
             return 0;
         }
