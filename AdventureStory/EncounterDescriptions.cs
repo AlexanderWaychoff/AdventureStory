@@ -17,10 +17,15 @@ namespace AdventureStory
         public bool decideColorYR = true;
         public string colorYellowRed = "red";
 
+        public int lockFirstObject = 0;
         public bool decideFirstObject = true;
         public string firstObject = "hollowed-out trunk of a tree";
+        public int lockSecondObject = 0;
         public bool decideSecondObject = true;
         public string secondObject = "troll";
+        public int lockThirdObject = 0;
+        public bool decideThirdObject = true;
+        public string thirdObject = "fountain";
 
         public bool isPretty = true;
         public string prettiness = "pretty";
@@ -54,13 +59,27 @@ namespace AdventureStory
         }
         public void ChangeFirstObject()
         {
-            decideFirstObject = !decideFirstObject;
-            firstObject = decideFirstObject ? "hollowed-out trunk of a tree" : size + " " + secondObject + " with " + colorYellowRed + " spots and " + colorGreenBlue + " underwear";
+            if (lockFirstObject == 0)
+            {
+                decideFirstObject = !decideFirstObject;
+                firstObject = decideFirstObject ? "hollowed-out trunk of a tree" : size + " " + secondObject + " with " + colorYellowRed + " spots and " + colorGreenBlue + " underwear";
+            }
         }
         public void ChangeSecondObject()
         {
-            decideSecondObject = !decideSecondObject;
-            secondObject = decideSecondObject ? "troll" : "unicorn";
+            if(lockSecondObject == 0)
+            { 
+                decideSecondObject = !decideSecondObject;
+                secondObject = decideSecondObject ? "troll" : "unicorn";
+            }
+        }
+        public void ChangeThirdObject()
+        {
+            if (lockThirdObject == 0)
+            {
+                decideThirdObject = !decideThirdObject;
+                thirdObject = decideThirdObject ? "fountain" : "bottomless pit";
+            }
         }
 
 
