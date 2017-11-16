@@ -146,6 +146,29 @@ namespace AdventureStory
             if (choiceCompleted == 2)
             {
                 Console.WriteLine(storyline);
+                if (choice1 == "left")
+                {
+
+                }
+                else if (choice1 == "middle")
+                {
+
+                }
+                else
+                {
+                    if (choice2 == "taste" || choice2 == "yell")
+                    {
+                        encounterDescriptions.YRChangeColor();
+                        storyline = "The " + carryover2 + " nods happily and shoots off into a now " + encounterDescriptions.colorYellowRed + " sky.  The whole which the narwhal left now lay exposed.  What do you do?";
+                    }
+                    else
+                    {
+                        encounterDescriptions.ChangeFifthObject();
+                        Console.WriteLine("As you stare at the " + carryover2 + " his horn begins to glow.  You begin to feel weird; it's probably because he just turned you into a " + encounterDescriptions.fifthObject + ".  With a little chortle he pulls out a sharpie and draws a face with a bushy mustache onto you.  As a watermelon you have no functional extremities anymore; you're adventure ends here.  At least the " + carryover2 + " drew your face with a smile, but we both know that only goes skin deep.");
+                        Console.ReadKey();
+                        return 0;
+                    }
+                }
                 Console.WriteLine("You can blank blank or blank.");
                 choice3 = Console.ReadLine();
 

@@ -104,7 +104,7 @@ namespace AdventureStory
             if (lockFifthObject == 0)
             {
                 decideFifthObject = !decideFifthObject;
-                fifthObject = decideFifthObject ? "skittles" : "watermelons";
+                fifthObject = decideFifthObject ? "skittles" : "watermelon";
             }
         }
 
