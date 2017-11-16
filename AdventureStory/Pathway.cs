@@ -156,11 +156,16 @@ namespace AdventureStory
                     if(choice2 == "taste")
                     {
                         Console.WriteLine("A " + encounterDescriptions.firstObject + " appears out of the stump while your tongue is still sticking out mid-taste.  'What the deuce?  What are you tasting a stump for, are you trying to be weird?  What's wrong with you, you should be ashamed of yourself.  Get yourself checked before you shrek yourself.'  The " + encounterDescriptions.secondObject + " kept running off insults at your rather weird choice of action.  With your head low you continue to take the onslaught of insults in shame.  This adventure was a big disappointment, what's wrong with you?");
+                        return 0;
                     }
                     else if (choice2 == "yell")
                     {
                         encounterDescriptions.GBChangeColor();
-                        storyline = "A " + encounterDescriptions.firstObject + " appears out of the stump.  'Oi I thought I heard something, was it you?'";
+                        storyline = "A " + encounterDescriptions.firstObject + " appears out of the stump.  'Oi I thought I heard something, was it you?'  You nod your head to confirm.  'Well I don't know if you knew I was here or not, if not then random yelling is weird so get a hold of yourself.'  He climbs out of the stump and lands with a thud.  'Anyway I'm out of here, nothing else to see here, nope, definitely not.'  The troll walks away while you stand and watch him.  Once he's out of sight you return your gaze to the presumably empty stump.   What do you do?";
+                    }
+                    else
+                    {
+                        storyline = "A " + encounterDescriptions.firstObject + " appears out of the stump.  'Oi you alright buddy?'  You nod your head to confirm, but continue to stare at the stump.  'Okely donkinsnatch then, I'm getting out of here.'  He climbs out of the stump and lands with a thud.  'Anyway I'm out of here, nothing else to see here, nope, definitely not.'  The troll walks away while you continue to stare at the stump.  The trolls footsteps fade into the distance and eventually all is silent except the wind blowing into the nearby trees.   Staring gets boring, and now you have the actual stump to consider.  What do you do?";
                     }
                 }
                 else if (choice1 == "middle")
@@ -185,7 +190,7 @@ namespace AdventureStory
                     if (choice2 == "taste" || choice2 == "yell")
                     {
                         encounterDescriptions.YRChangeColor();
-                        storyline = "The " + carryover2 + " nods happily and shoots off into a now " + encounterDescriptions.colorYellowRed + " sky.  The whole which the narwhal left now lay exposed.  What do you do?";
+                        storyline = "The " + carryover2 + " nods happily and shoots off into a now " + encounterDescriptions.colorYellowRed + " sky.  The hole which the narwhal left now lay exposed.  What do you do?";
                     }
                     else
                     {
@@ -196,12 +201,17 @@ namespace AdventureStory
                     }
                 }
                 Console.WriteLine(storyline);
-                Console.WriteLine("You can 'enter' 'ignore' or blank.");
+                Console.WriteLine("You can 'enter' or 'ignore'.");
                 choice3 = Console.ReadLine();
 
                 switch (choice3)
                 {
+                    case "enter":
 
+                        break;
+                    case "ignore":
+
+                        break;
                     default:
                         defaultChoice += 1;
                         Console.WriteLine("You hear rumbling nearby.  You're inability to type accurately has apparently disturbed something.");
