@@ -153,7 +153,15 @@ namespace AdventureStory
                 Console.WriteLine(storyline);
                 if (choice1 == "left")
                 {
-
+                    if(choice2 == "taste")
+                    {
+                        Console.WriteLine("A " + encounterDescriptions.firstObject + " appears out of the stump while your tongue is still sticking out mid-taste.  'What the deuce?  What are you tasting a stump for, are you trying to be weird?  What's wrong with you, you should be ashamed of yourself.  Get yourself checked before you shrek yourself.'  The " + encounterDescriptions.secondObject + " kept running off insults at your rather weird choice of action.  With your head low you continue to take the onslaught of insults in shame.  This adventure was a big disappointment, what's wrong with you?");
+                    }
+                    else if (choice2 == "yell")
+                    {
+                        encounterDescriptions.GBChangeColor();
+                        storyline = "A " + encounterDescriptions.firstObject + " appears out of the stump.  'Oi I thought I heard something, was it you?'";
+                    }
                 }
                 else if (choice1 == "middle")
                 {
@@ -188,7 +196,7 @@ namespace AdventureStory
                     }
                 }
                 Console.WriteLine(storyline);
-                Console.WriteLine("You can blank blank or blank.");
+                Console.WriteLine("You can 'enter' 'ignore' or blank.");
                 choice3 = Console.ReadLine();
 
                 switch (choice3)
