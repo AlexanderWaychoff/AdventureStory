@@ -10,6 +10,9 @@ namespace AdventureStory
     {
         static void Main(string[] args)
         {
+            Pathway playerPathway = new Pathway();
+            playerPathway.GrandAdventure();
+
         }
     }
 }
