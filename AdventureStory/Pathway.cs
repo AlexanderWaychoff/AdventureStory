@@ -8,6 +8,7 @@ namespace AdventureStory
 {
     class Pathway
     {
+        EncounterDescriptions encounterDescriptions = new EncounterDescriptions();
         public string choice1;
         public string choice2;
         public string choice3;
@@ -19,9 +20,23 @@ namespace AdventureStory
 
             switch (choice1)
             {
+                case "left":
+                    encounterDescriptions.GBChangeColor();
+                    Console.WriteLine("You venture down the left path.  The sky is " + encounterDescriptions.colorGreenBlue + " and full of " + encounterDescriptions.size + " clouds.  Nothing happens for a while until you come upon a " + encounterDescriptions.firstObject + ".  What do you do?");
+                    Console.ReadKey();
+                    break;
+                case "middle":
+                    Console.WriteLine("You venture down the middle path.  You notice some " + encounterDescriptions.colorYellowRed + " wisps floating about the air.  ");
+                    break;
+                case "right":
 
+                    break;
 
+                default:
+
+                    break;
             }
+            choice2 = Console.ReadLine();
         }
     }
 }
