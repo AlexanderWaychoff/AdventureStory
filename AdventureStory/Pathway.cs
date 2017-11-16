@@ -156,6 +156,7 @@ namespace AdventureStory
                     if(choice2 == "taste")
                     {
                         Console.WriteLine("A " + encounterDescriptions.firstObject + " appears out of the stump while your tongue is still sticking out mid-taste.  'What the deuce?  What are you tasting a stump for, are you trying to be weird?  What's wrong with you, you should be ashamed of yourself.  Get yourself checked before you shrek yourself.'  The " + encounterDescriptions.secondObject + " kept running off insults at your rather weird choice of action.  With your head low you continue to take the onslaught of insults in shame.  This adventure was a big disappointment, what's wrong with you?");
+                        Console.ReadKey();
                         return 0;
                     }
                     else if (choice2 == "yell")
@@ -207,10 +208,44 @@ namespace AdventureStory
                 switch (choice3)
                 {
                     case "enter":
-
-                        break;
+                        if (choice1 == "left")
+                        {
+                            Console.WriteLine("You decide to enter the stump.  You can't see the bottom, but that doesn't stop you from climbing in anyway.  You fall for a short period, or so you hoped.  Does that make sense?  It shouldn't, and neither does a bottomless pit, yet here you are.  You continue to fall and fall and fall and fall and xxxqqwqqrrerrr----@-&&$&-");
+                            Console.ReadKey();
+                            Console.WriteLine("Welcome Adventurer!");
+                            choiceCompleted = 0;
+                            GrandAdventure();
+                            return 0;
+                        }
+                        else if (choice1 == "middle")
+                        {
+                            Console.WriteLine("You decide to enter the fountain.  'Excuse me you, but you aren't allowed in here-wait!'  The unicorn tries to say, but you fall into the fountain.  Things get blurry for a bit, but somehow you fall through, like a portal, into a cave filled with treasures.  Score!  You grab what you can and stuff it into your pockets and other places you'd be willing to store valuables, then make a turn for the exit.  Except there's a problem, the way you came in is gone!  You look around but see no way out.  Surrounded with valuable treasures but no way out, can you call this adventure a success?  No, no you can't. Don't even try.");
+                            Console.ReadKey();
+                            return 0;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You decide to enter the hole that the narwhal left recently.  It doesn't ascend or descend, just goes deeper.  As you go deeper you can start to hear something, sounds like cheering?  It gets louder as you near the end of the tunnel.  The tunnel ends abruptly and you fall onto a padded flooring.  'Let's hear it for our next contestant!'  The crowd, now that you see it, lets their voice be heard as they cheer you on.  You don't know what's happening, but you smile and wave to the crowd as the applause makes you feel giddy.  What kind of contestant are you though?  As you look around you see other contestants with penguins tied to their feet lined up at a starting flag for a water race track, and you have 2 penguins right in front of you eager to cuddle your bunyans.  With a shrug you replace your shoes with penguins and line up with the other contestants, ready to race.  You got to put penguins on your feet, I'd consider this adventure a success!");
+                            Console.ReadKey();
+                            return 0;
+                        }
                     case "ignore":
-
+                        if (choice1 == "left")
+                        {
+                            Console.WriteLine("You decide not to go into the stump and just ignore it, probably for the best.  This ends your adventure and you're still alive to embark on another one.  Partial success, though this adventure was kind of lame.  Try to be, you know, more adventurous.");
+                            Console.ReadKey();
+                            return 0;
+                        }
+                        else if (choice1 == "middle")
+                        {
+                            Console.WriteLine("'Ah, a fellow who isn't greedy.  I can appreciate that.'  The unicorn says.  He dips into the fountain then shortly afterward comes back up with shiny valuables.  'Here's a reward for being so humble and having great taste in fountains.'  He dips back into the fountain and disappears.  You stand there until the water in the fountain settles, now richer than you started with a story to tell about a mythical creature.  This adventure was a success!");
+                            Console.ReadKey();
+                            return 0;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You decide to ignore the hole the narwhal left from.  You make your way back home, wondering what you could've missed.  A decision was made however, and you're sticking to it.  This adventure... happened?  At least you got to meet a narwhal.");
+                        }
                         break;
                     default:
                         defaultChoice += 1;
